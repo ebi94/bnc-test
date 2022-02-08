@@ -1,0 +1,36 @@
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { Affix, Menu } from 'antd';
+import { HomeOutlined, UnorderedListOutlined, HeartOutlined } from '@ant-design/icons';
+
+const Header = (props) => {
+
+  const [current, setCurrent] = ('home');
+  const handleClick = e => {
+    setCurrent(e.key)
+  }
+
+  return (
+    <Affix offsetTop={0}>
+      <Menu mode="horizontal" onClick={() => handleClick}>
+          <Menu.Item key="home" icon={<HomeOutlined />}>
+            <Link href="/">
+              Home
+            </Link>
+          </Menu.Item>
+          <Menu.Item key="list" icon={<UnorderedListOutlined />}>
+            <Link href="/">
+              List Movies
+            </Link>
+          </Menu.Item>
+          <Menu.Item key="fav" icon={<HeartOutlined />}>
+            <Link href="/favorite">
+              Favorite Movies
+            </Link>
+          </Menu.Item>
+      </Menu>
+    </Affix>
+  );
+};
+
+export default Header;
