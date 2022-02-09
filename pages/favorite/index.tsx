@@ -10,7 +10,7 @@ const { Meta } = Card;
 
 const Index = () => {
   const [listMovies, setListMovies] = useState([]);
-  const [listFav, setListFav] = useState();
+  const [listFav, setListFav] = useState([]);
 
   const getListMovies = async () => {
     const res = await list();
@@ -31,8 +31,9 @@ const Index = () => {
 
   return (
     <>
-      <Header />
+      <Header selectedMenu="fav"/>
       <ListCardWrapper>
+        {+listFav.length === 0 && "No Data"}
         {listMovies.map(item => 
           checkFav(item.id) ? 
           '' :

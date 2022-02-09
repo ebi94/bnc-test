@@ -5,6 +5,7 @@ import { HomeOutlined, UnorderedListOutlined, HeartOutlined } from '@ant-design/
 
 const Header = (props) => {
 
+  const {selectedMenu} = props;
   const [current, setCurrent] = ('home');
   const handleClick = e => {
     setCurrent(e.key)
@@ -12,20 +13,20 @@ const Header = (props) => {
 
   return (
     <Affix offsetTop={0}>
-      <Menu mode="horizontal" onClick={() => handleClick}>
+      <Menu mode="horizontal" onClick={() => handleClick} selectedKeys={selectedMenu}	>
           <Menu.Item key="home" icon={<HomeOutlined />}>
             <Link href="/">
               Home
             </Link>
           </Menu.Item>
-          <Menu.Item key="list" icon={<UnorderedListOutlined />}>
-            <Link href="/">
-              List Movies
-            </Link>
-          </Menu.Item>
           <Menu.Item key="fav" icon={<HeartOutlined />}>
             <Link href="/favorite">
               Favorite Movies
+            </Link>
+          </Menu.Item>
+          <Menu.Item key="detail" icon={<UnorderedListOutlined />}>
+            <Link href="#">
+              Detail Movies
             </Link>
           </Menu.Item>
       </Menu>

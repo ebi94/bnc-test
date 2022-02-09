@@ -20,3 +20,7 @@ yarn dev
 yarn build
 yarn start
 ```
+3. Unit Test
+``` bash
+# Test
+yarn test

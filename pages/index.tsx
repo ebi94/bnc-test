@@ -51,7 +51,7 @@ const Index = () => {
 
   return (
     <>
-      <Header />
+      <Header selectedMenu="home" />
       <ListCardWrapper>
         {listMovies.map(item => (
           <CardWrapper key={item.id}>
